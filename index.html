@@ -3,1036 +3,404 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arch n Tone - Beauty Parlour & Grooming Studio</title>
-    <!-- Bootstrap CSS -->
+    <title>Arch n Tone - Beauty Parlour</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
-        /* ========================================
-           ALL CSS IS RIGHT HERE - NO SEPARATE FILE NEEDED!
-           ======================================== */
+        /* ALL STYLES HERE - NO SEPARATE FILE NEEDED */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         
-        /* RESET & BASE */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow-x: hidden;
-            background-color: #ffffff;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        /* NAVIGATION */
         .navbar {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: #1a1a2e !important;
             padding: 15px 0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            transition: all 0.3s ease;
         }
-
-        .navbar.scrolled {
-            background: rgba(26, 26, 46, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 10px 0;
-        }
-
-        .logo-text {
-            font-size: 28px;
-            font-weight: 700;
-            color: #e8c9a0;
-            letter-spacing: 2px;
-            display: block;
-            line-height: 1.2;
-        }
-
-        .logo-subtext {
-            font-size: 11px;
-            color: #a8a8b3;
-            letter-spacing: 3px;
-            font-weight: 300;
-            display: block;
-            text-transform: uppercase;
-        }
-
-        .navbar-nav .nav-link {
-            color: #ffffff !important;
-            font-weight: 400;
-            margin: 0 10px;
-            padding: 8px 0;
-            position: relative;
-            transition: all 0.3s ease;
-            font-size: 15px;
-        }
-
-        .navbar-nav .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #e8c9a0;
-            transition: width 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .btn-shop-now {
-            background: #e8c9a0;
-            color: #1a1a2e !important;
-            padding: 8px 25px;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-shop-now:hover {
-            background: #d4b08c;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(232, 201, 160, 0.3);
-            color: #1a1a2e !important;
-        }
-
-        /* HERO SECTION */
+        .logo-text { font-size: 28px; font-weight: 700; color: #e8c9a0; }
+        .logo-subtext { font-size: 11px; color: #a8a8b3; display: block; }
+        .navbar-nav .nav-link { color: #ffffff !important; margin: 0 10px; }
+        .btn-shop-now { background: #e8c9a0; color: #1a1a2e !important; padding: 8px 25px; border-radius: 30px; font-weight: 600; }
+        
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 50%, #1a1a2e 100%);
+            background: #1a1a2e;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             padding-top: 80px;
-            position: relative;
-            overflow: hidden;
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 50%, rgba(232, 201, 160, 0.05) 0%, transparent 70%);
-            animation: heroGlow 20s ease-in-out infinite alternate;
-        }
-
-        @keyframes heroGlow {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            100% {
-                transform: translate(10%, 5%) scale(1.2);
-            }
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at center, rgba(26, 26, 46, 0.3) 0%, rgba(26, 26, 46, 0.8) 100%);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            padding: 20px;
-        }
-
-        .hero h1 {
-            font-size: 3.8rem;
-            font-weight: 300;
-            color: #ffffff;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-
-        .hero h1::before {
-            content: '✦ ';
-            color: #e8c9a0;
-            font-size: 2.5rem;
-        }
-
-        .hero h1::after {
-            content: ' ✦';
-            color: #e8c9a0;
-            font-size: 2.5rem;
-        }
-
-        .hero .lead {
-            font-size: 1.3rem;
-            color: #c8c8d4;
-            font-weight: 300;
-            margin-bottom: 15px;
-        }
-
-        .hero-subtext {
-            color: #a8a8b3;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-explore {
-            background: #e8c9a0;
-            color: #1a1a2e;
-            padding: 14px 40px;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-explore:hover {
-            background: #d4b08c;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(232, 201, 160, 0.3);
-            color: #1a1a2e;
-        }
-
-        .btn-outline-light {
-            border: 2px solid #e8c9a0;
-            color: #e8c9a0;
-            padding: 14px 40px;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            background: transparent;
-        }
-
-        .btn-outline-light:hover {
-            background: #e8c9a0;
-            color: #1a1a2e;
-            transform: translateY(-2px);
-        }
-
-        /* SECTION HEADERS */
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-header h2 {
-            font-size: 2.8rem;
-            font-weight: 300;
-            color: #1a1a2e;
-            margin-bottom: 10px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: #e8c9a0;
-        }
-
-        .section-header p {
-            color: #6c6c80;
-            font-size: 1.1rem;
-            margin-top: 15px;
-        }
-
-        /* SERVICES */
-        .services {
-            background: #f8f6f2;
-            padding: 80px 0;
-        }
-
-        .service-card {
-            background: #ffffff;
-            border-radius: 15px;
-            padding: 30px 25px;
-            text-align: center;
-            transition: all 0.4s ease;
-            height: 100%;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #e8c9a0, #d4b08c);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: #e8c9a0;
-            margin-bottom: 15px;
-        }
-
-        .service-card h3 {
-            font-size: 1.4rem;
-            color: #1a1a2e;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .service-card p {
-            color: #6c6c80;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .service-list {
-            list-style: none;
-            padding: 0;
-            margin: 15px 0;
-            text-align: left;
-        }
-
-        .service-list li {
-            color: #4a4a5a;
-            padding: 4px 0;
-            font-size: 0.9rem;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .btn-view-service {
-            background: transparent;
-            color: #1a1a2e;
-            border: 2px solid #e8c9a0;
-            padding: 8px 25px;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        .btn-view-service:hover {
-            background: #e8c9a0;
-            color: #1a1a2e;
-            transform: translateY(-2px);
-        }
-
-        /* PRICING */
-        .pricing {
-            background: #ffffff;
-            padding: 80px 0;
-        }
-
-        .pricing-card {
-            background: #f8f6f2;
-            border-radius: 15px;
-            padding: 30px;
-            height: 100%;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
-        }
-
-        .pricing-title {
-            font-size: 1.3rem;
-            color: #1a1a2e;
-            font-weight: 600;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #e8c9a0;
-        }
-
-        .pricing-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .pricing-table tr {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .pricing-table td {
-            padding: 10px 0;
-            color: #4a4a5a;
-        }
-
-        .pricing-table td:last-child {
-            text-align: right;
-            font-weight: 600;
-            color: #1a1a2e;
-        }
-
-        .table-divider td {
-            font-weight: 700;
-            color: #1a1a2e;
-            padding-top: 15px;
-            border-top: 2px solid #e8c9a0;
-            letter-spacing: 1px;
-        }
-
-        .pricing-note {
-            color: #6c6c80;
-            font-style: italic;
-        }
-
-        /* ABOUT */
-        .about {
-            background: #f8f6f2;
-            padding: 80px 0;
-        }
-
-        .about-img img {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-content h2 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            color: #1a1a2e;
-            margin-bottom: 20px;
-        }
-
-        .about-content p {
-            color: #5a5a6a;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-
-        .about-features {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
-        }
-
-        .about-features li {
-            padding: 8px 0;
-            color: #4a4a5a;
-            display: flex;
-            align-items: center;
-        }
-
-        .about-features li i {
-            color: #e8c9a0;
-            margin-right: 10px;
-            width: 20px;
-        }
-
-        .about-contact p {
-            margin-bottom: 5px;
-        }
-
-        .about-contact i {
-            color: #e8c9a0;
-            width: 25px;
-        }
-
-        /* CONTACT */
-        .contact {
-            background: #ffffff;
-            padding: 80px 0;
-        }
-
-        .contact-form .form-control {
-            border: 1px solid #e0e0e8;
-            border-radius: 10px;
-            padding: 12px 18px;
-            background: #f8f6f2;
-            transition: all 0.3s ease;
-            color: #1a1a2e;
-        }
-
-        .contact-form .form-control:focus {
-            border-color: #e8c9a0;
-            box-shadow: 0 0 0 3px rgba(232, 201, 160, 0.2);
-            background: #ffffff;
-        }
-
-        .btn-send {
-            background: #1a1a2e;
-            color: #ffffff;
-            padding: 14px 40px;
-            border-radius: 30px;
-            font-weight: 600;
-            border: none;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-        .btn-send:hover {
-            background: #e8c9a0;
-            color: #1a1a2e;
-            transform: translateY(-2px);
-        }
-
-        .contact-info {
-            padding: 20px;
-        }
-
-        .contact-item {
-            margin-bottom: 25px;
-        }
-
-        .contact-item i {
-            font-size: 1.8rem;
-            color: #e8c9a0;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .contact-item h4 {
-            font-size: 1.1rem;
-            color: #1a1a2e;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .contact-item p {
-            color: #5a5a6a;
-            margin-bottom: 0;
-        }
-
-        /* SOCIAL LINKS */
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 10px;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: #1a1a2e;
-            color: #e8c9a0;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        .social-links a:hover {
-            background: #e8c9a0;
-            color: #1a1a2e;
-            transform: translateY(-3px);
-        }
-
-        /* CTA BANNER */
-        .cta-banner {
-            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
-            color: #ffffff;
-            padding: 30px 0;
-        }
-
-        .cta-banner h3 {
-            font-weight: 300;
-            font-size: 1.8rem;
-        }
-
-        .cta-banner p {
-            opacity: 0.7;
-            margin-top: 5px;
-        }
-
-        .cta-banner .btn-light {
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: 600;
-            color: #1a1a2e;
-            transition: all 0.3s ease;
-        }
-
-        .cta-banner .btn-light:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
-        }
-
-        /* FOOTER */
-        .footer {
-            background: #0f0f1a;
-            color: #a8a8b3;
-            padding: 60px 0 20px;
-        }
-
-        .footer-brand h3 {
-            color: #e8c9a0;
-            font-size: 1.8rem;
-            font-weight: 300;
-            margin-bottom: 10px;
-        }
-
-        .footer-brand p {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            line-height: 1.6;
-        }
-
-        .footer h4 {
-            color: #ffffff;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .footer-links {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #a8a8b3;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: #e8c9a0;
-        }
-
-        .footer .social-links a {
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .footer .social-links a:hover {
-            background: #e8c9a0;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 20px;
-            margin-top: 30px;
-            text-align: center;
-            font-size: 0.85rem;
-            opacity: 0.6;
-        }
-
-        /* BACK TO TOP */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #e8c9a0;
-            color: #1a1a2e;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-            box-shadow: 0 5px 20px rgba(232, 201, 160, 0.3);
-        }
-
-        .back-to-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background: #d4b08c;
-            transform: translateY(-3px);
-            color: #1a1a2e;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            .hero h1::before,
-            .hero h1::after {
-                font-size: 1.8rem;
-            }
-            .section-header h2 {
-                font-size: 2.2rem;
-            }
-        }
-
+        .hero h1 { font-size: 3.5rem; color: #ffffff; font-weight: 300; }
+        .hero h1 span { color: #e8c9a0; }
+        .hero .lead { font-size: 1.3rem; color: #c8c8d4; }
+        .hero-subtext { color: #a8a8b3; font-size: 1.1rem; margin-bottom: 30px; }
+        .btn-explore { background: #e8c9a0; color: #1a1a2e; padding: 14px 40px; border-radius: 30px; font-weight: 600; display: inline-block; }
+        .btn-outline-light { border: 2px solid #e8c9a0; color: #e8c9a0; padding: 14px 40px; border-radius: 30px; font-weight: 600; display: inline-block; background: transparent; }
+        
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 2.8rem; color: #1a1a2e; font-weight: 300; }
+        .section-header h2::after { content: ''; display: block; width: 60px; height: 3px; background: #e8c9a0; margin: 10px auto; }
+        
+        .services { background: #f8f6f2; padding: 80px 0; }
+        .service-card { background: #ffffff; border-radius: 15px; padding: 30px; text-align: center; box-shadow: 0 5px 25px rgba(0,0,0,0.05); height: 100%; }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-icon { font-size: 3rem; color: #e8c9a0; }
+        .service-card h3 { font-size: 1.4rem; color: #1a1a2e; }
+        .service-card p { color: #6c6c80; }
+        .service-list { list-style: none; padding: 0; text-align: left; }
+        .service-list li { padding: 4px 0; color: #4a4a5a; display: flex; justify-content: space-between; }
+        .btn-view-service { border: 2px solid #e8c9a0; color: #1a1a2e; padding: 8px 25px; border-radius: 25px; display: inline-block; margin-top: 10px; }
+        
+        .pricing { padding: 80px 0; }
+        .pricing-card { background: #f8f6f2; border-radius: 15px; padding: 30px; height: 100%; }
+        .pricing-title { font-size: 1.3rem; color: #1a1a2e; border-bottom: 2px solid #e8c9a0; padding-bottom: 10px; margin-bottom: 20px; }
+        .pricing-table { width: 100%; }
+        .pricing-table td { padding: 10px 0; color: #4a4a5a; }
+        .pricing-table td:last-child { text-align: right; font-weight: 600; color: #1a1a2e; }
+        .table-divider td { font-weight: 700; color: #1a1a2e; border-top: 2px solid #e8c9a0; padding-top: 15px; }
+        
+        .about { background: #f8f6f2; padding: 80px 0; }
+        .about-content h2 { font-size: 2.5rem; color: #1a1a2e; font-weight: 300; }
+        .about-content p { color: #5a5a6a; line-height: 1.8; }
+        .about-features { list-style: none; padding: 0; }
+        .about-features li { padding: 8px 0; color: #4a4a5a; }
+        .about-features li i { color: #e8c9a0; margin-right: 10px; }
+        
+        .contact { padding: 80px 0; }
+        .contact-form .form-control { border: 1px solid #e0e0e8; border-radius: 10px; padding: 12px 18px; background: #f8f6f2; }
+        .btn-send { background: #1a1a2e; color: #ffffff; padding: 14px 40px; border-radius: 30px; font-weight: 600; border: none; width: 100%; }
+        .btn-send:hover { background: #e8c9a0; color: #1a1a2e; }
+        .contact-item { margin-bottom: 25px; }
+        .contact-item i { font-size: 1.8rem; color: #e8c9a0; }
+        .contact-item h4 { color: #1a1a2e; font-weight: 600; }
+        
+        .social-links { display: flex; gap: 15px; margin-top: 10px; }
+        .social-links a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #1a1a2e; color: #e8c9a0; border-radius: 50%; }
+        .social-links a:hover { background: #e8c9a0; color: #1a1a2e; }
+        
+        .cta-banner { background: #1a1a2e; color: #ffffff; padding: 30px 0; }
+        .cta-banner h3 { font-weight: 300; }
+        .cta-banner .btn-light { padding: 12px 30px; border-radius: 30px; font-weight: 600; color: #1a1a2e; }
+        
+        .footer { background: #0f0f1a; color: #a8a8b3; padding: 60px 0 20px; }
+        .footer-brand h3 { color: #e8c9a0; font-size: 1.8rem; font-weight: 300; }
+        .footer h4 { color: #ffffff; }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links a { color: #a8a8b3; text-decoration: none; }
+        .footer-links a:hover { color: #e8c9a0; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; margin-top: 30px; text-align: center; }
+        
+        .back-to-top { position: fixed; bottom: 30px; right: 30px; background: #e8c9a0; color: #1a1a2e; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+        
         @media (max-width: 768px) {
-            .hero {
-                min-height: 90vh;
-                padding-top: 70px;
-            }
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .hero h1::before,
-            .hero h1::after {
-                font-size: 1.4rem;
-            }
-            .hero .lead {
-                font-size: 1.1rem;
-            }
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            .hero-buttons .btn {
-                width: 100%;
-                max-width: 280px;
-                text-align: center;
-            }
-            .about-content {
-                margin-top: 30px;
-            }
-            .contact-info {
-                margin-top: 30px;
-            }
-            .logo-text {
-                font-size: 22px;
-            }
-            .logo-subtext {
-                font-size: 9px;
-            }
-            .pricing-card {
-                margin-bottom: 20px;
-            }
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-            .service-card {
-                padding: 20px;
-            }
-            .cta-banner .row {
-                text-align: center;
-            }
-            .cta-banner .col-md-4 {
-                margin-top: 15px;
-            }
-            .footer {
-                text-align: center;
-            }
-            .footer .social-links {
-                justify-content: center;
-            }
-            .back-to-top {
-                bottom: 15px;
-                right: 15px;
-                width: 40px;
-                height: 40px;
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            .hero h1::before,
-            .hero h1::after {
-                font-size: 1.2rem;
-            }
-            .section-header h2 {
-                font-size: 1.6rem;
-            }
-            .pricing-table td {
-                font-size: 0.9rem;
-                padding: 8px 0;
-            }
-            .btn-explore,
-            .btn-outline-light {
-                padding: 12px 30px;
-                font-size: 0.95rem;
-            }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .hero-buttons .btn { width: 100%; max-width: 280px; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <span class="logo-text">Arch n Tone</span>
-                <span class="logo-subtext">Beauty Parlour & Grooming Studio</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item">
-                        <a href="https://www.instagram.com/archntone/" class="btn btn-shop-now">Book Now <i class="fas fa-calendar-check"></i></a>
-                    </li>
+
+<!-- NAVIGATION -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <span class="logo-text">✦ Arch n Tone</span>
+            <span class="logo-subtext">Beauty Parlour & Grooming Studio</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a href="#" class="btn btn-shop-now">Book Now</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+    <div class="container hero-content">
+        <h1>Where every arch is an art,<br><span>and every tone is your glow</span></h1>
+        <p class="lead">Precision Threading • Waxing • Tinting • Facials • Eyelash Extensions • Henna • Full Body Grooming</p>
+        <p class="hero-subtext">Enhancing your natural beauty with expertise, care, and affordability in Australia</p>
+        <div class="hero-buttons">
+            <a href="#pricing" class="btn-explore">View Services & Pricing</a>
+            <a href="tel:610450051237" class="btn-outline-light">Call to Book</a>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Premium Services</h2>
+            <p>Expert grooming services tailored to enhance your natural beauty</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-eye"></i></div>
+                    <h3>Threading</h3>
+                    <p>Precision eyebrow shaping with clean, hygienic thread techniques.</p>
+                    <ul class="service-list">
+                        <li><span>Eyebrows</span><span>$10</span></li>
+                        <li><span>Upper Lip</span><span>$7</span></li>
+                        <li><span>Full Face</span><span>$30</span></li>
+                    </ul>
+                    <a href="#pricing" class="btn-view-service">View All</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-spa"></i></div>
+                    <h3>Waxing</h3>
+                    <p>Gentle and effective waxing for smooth, hair-free skin.</p>
+                    <ul class="service-list">
+                        <li><span>Under Arms</span><span>$15</span></li>
+                        <li><span>Full Legs</span><span>$40</span></li>
+                        <li><span>Full Body</span><span>$99</span></li>
+                    </ul>
+                    <a href="#pricing" class="btn-view-service">View All</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-magic"></i></div>
+                    <h3>Tinting & Lamination</h3>
+                    <p>Professional tinting and lamination services.</p>
+                    <ul class="service-list">
+                        <li><span>Eyebrow Tint</span><span>$10</span></li>
+                        <li><span>Eyelash Lift</span><span>$45</span></li>
+                        <li><span>Eyebrow Lamination</span><span>$70</span></li>
+                    </ul>
+                    <a href="#pricing" class="btn-view-service">View All</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="pricing">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Pricing</h2>
+            <p>Premium services at affordable prices</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Threading & Facials</h3>
+                    <table class="pricing-table">
+                        <tr><td>Eyebrows</td><td>$10</td></tr>
+                        <tr><td>Upper Lip</td><td>$7</td></tr>
+                        <tr><td>Full Face</td><td>$30</td></tr>
+                        <tr class="table-divider"><td colspan="2">FACIALS</td></tr>
+                        <tr><td>Express Cleansing</td><td>$25</td></tr>
+                        <tr><td>Classic Facial</td><td>$45</td></tr>
+                        <tr><td>Delux Facial</td><td>$100</td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Tinting & Lashes</h3>
+                    <table class="pricing-table">
+                        <tr><td>Eyebrow Tint</td><td>$10</td></tr>
+                        <tr><td>Eyelash Tint</td><td>$12</td></tr>
+                        <tr><td>Eyelash Lift</td><td>$45</td></tr>
+                        <tr class="table-divider"><td colspan="2">EYELASH EXTENSIONS</td></tr>
+                        <tr><td>Classic Set</td><td>$65</td></tr>
+                        <tr><td>Volume Set</td><td>$85</td></tr>
+                        <tr><td>Refills</td><td>$40</td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Waxing Services</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <table class="pricing-table">
+                                <tr><td>Under Arms</td><td>$15</td></tr>
+                                <tr><td>Half Arms</td><td>$20</td></tr>
+                                <tr><td>Full Legs</td><td>$40</td></tr>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <table class="pricing-table">
+                                <tr><td>Full Body</td><td>$99</td></tr>
+                                <tr><td>Brazilian</td><td>$45</td></tr>
+                                <tr><td>Bikini Line</td><td>$20</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <!-- COLORFUL IMAGE PLACEHOLDER -->
+                <div style="background: linear-gradient(135deg, #e8c9a0, #d4b08c, #c4956a); height: 400px; border-radius: 15px; display: flex; align-items: center; justify-content: center; flex-direction: column; color: #1a1a2e; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
+                    <i class="fas fa-spa" style="font-size: 5rem; margin-bottom: 20px; color: #1a1a2e; opacity: 0.8;"></i>
+                    <h2 style="font-weight: 300;">Arch n Tone</h2>
+                    <p style="opacity: 0.7;">Beauty Parlour & Grooming Studio</p>
+                    <div style="margin-top: 15px; background: rgba(26,26,46,0.15); padding: 8px 20px; border-radius: 20px; font-size: 0.9rem;">
+                        <i class="fas fa-camera"></i> Add your photo here
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-content">
+                    <h2>About Arch n Tone</h2>
+                    <p>Welcome to <strong>Arch n Tone</strong>, your premier beauty destination in Australia. We specialize in precision threading, waxing, tinting, facials, and full-body grooming services.</p>
+                    <ul class="about-features">
+                        <li><i class="fas fa-check"></i> Expert professionals with years of experience</li>
+                        <li><i class="fas fa-check"></i> Premium products & hygienic practices</li>
+                        <li><i class="fas fa-check"></i> Affordable pricing with no hidden costs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="section-header">
+            <h2>Book Your Appointment</h2>
+            <p>We'd love to help you glow</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <form class="contact-form">
+                    <div class="mb-3"><input type="text" class="form-control" placeholder="Your Name"></div>
+                    <div class="mb-3"><input type="email" class="form-control" placeholder="Your Email"></div>
+                    <div class="mb-3"><input type="text" class="form-control" placeholder="Phone Number"></div>
+                    <div class="mb-3">
+                        <select class="form-control">
+                            <option>Select Service</option>
+                            <option>Threading</option>
+                            <option>Waxing</option>
+                            <option>Tinting</option>
+                            <option>Facials</option>
+                        </select>
+                    </div>
+                    <div class="mb-3"><textarea class="form-control" rows="4" placeholder="Preferred Date & Time"></textarea></div>
+                    <button type="submit" class="btn-send">Send Booking Request</button>
+                </form>
+            </div>
+            <div class="col-lg-6">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Location</h4>
+                        <p>Australia</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <h4>Phone</h4>
+                        <p>610450051237</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email</h4>
+                        <p>archtone@gmail.com</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+    <div class="container text-center">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h3>Your Glow Awaits ✨</h3>
+                <p>Reserve your experience today</p>
+            </div>
+            <div class="col-md-4">
+                <a href="tel:610450051237" class="btn btn-light">Call Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="footer-brand">
+                    <h3>Arch n Tone</h3>
+                    <p>Where every arch is an art, and every tone is your glow</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#about">About</a></li>
                 </ul>
             </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <h1>Where every arch is an art, and every tone is your glow</h1>
-            <p class="lead">Precision Threading • Waxing • Tinting • Facials • Eyelash Extensions • Henna • Full Body Grooming</p>
-            <p class="hero-subtext">Enhancing your natural beauty with expertise, care, and affordability in Australia</p>
-            <div class="hero-buttons">
-                <a href="#pricing" class="btn btn-explore">View Services & Pricing</a>
-                <a href="tel:610450051237" class="btn btn-outline-light">Call to Book</a>
+            <div class="col-md-4">
+                <h4>Contact</h4>
+                <p><i class="fas fa-phone"></i> 610450051237</p>
+                <p><i class="fas fa-envelope"></i> archtone@gmail.com</p>
             </div>
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services py-5">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Premium Services</h2>
-                <p>Expert grooming services tailored to enhance your natural beauty</p>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-md-4 col-sm-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-eye"></i></div>
-                        <div class="service-info">
-                            <h3>Threading</h3>
-                            <p>Precision eyebrow shaping, upper lip, forehead, full face, and more with clean, hygienic thread techniques.</p>
-                            <ul class="service-list">
-                                <li>✓ Eyebrows - $10</li>
-                                <li>✓ Upper Lip - $7</li>
-                                <li>✓ Full Face - $30</li>
-                                <li>✓ Eyebrow + Lip - $15</li>
-                            </ul>
-                            <a href="#pricing" class="btn btn-view-service">View All Threading</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 col-sm-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-spa"></i></div>
-                        <div class="service-info">
-                            <h3>Waxing</h3>
-                            <p>Gentle and effective waxing for smooth, hair-free skin on face and body.</p>
-                            <ul class="service-list">
-                                <li>✓ Under Arms - $15</li>
-                                <li>✓ Half Arms - $20</li>
-                                <li>✓ Full Legs - $40</li>
-                                <li>✓ Full Body - $99</li>
-                                <li>✓ Brazilian - $45</li>
-                            </ul>
-                            <a href="#pricing" class="btn btn-view-service">View All Waxing</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 col-sm-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-magic"></i></div>
-                        <div class="service-info">
-                            <h3>Tinting & Lamination</h3>
-                            <p>Enhance your natural features with professional tinting and lamination services.</p>
-                            <ul class="service-list">
-                                <li>✓ Eyebrow Tint - $10</li>
-                                <li>✓ Eyelash Tint - $12</li>
-                                <li>✓ Eyelash Lift - $45</li>
-                                <li>✓ Eyebrow Lamination - $70</li>
-                            </ul>
-                            <a href="#pricing" class="btn btn-view-service">View All Tinting</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 col-sm-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-hand-holding-heart"></i></div>
-                        <div class="service-info">
-                            <h3>Facials</h3>
-                            <p>Rejuvenating facials for every skin type, leaving your skin fresh and radiant.</p>
-                            <ul class="service-list">
-                                <li>✓ Express Cleansing - $25</li>
-                                <li>✓ Classic Facial - $45</li>
-                                <li>✓ Brightening Facial - $75</li>
-                                <li>✓ Anti-Aging Facial - $75</li>
-                                <li>✓ Deluxe Facial - $100</li>
-                            </ul>
-                            <a href="#pricing" class="btn btn-view-service">View All Facials</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 col-sm-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-eye"></i></div>
-                        <div class="service-info">
-                            <h3>Eyelash Extensions</h3>
-                            <p>Full sets and refills for stunning, voluminous lashes.</p>
-                            <ul class="service-list">
-                                <li>✓ Classic Set - $65</li>
-                                <li>✓ Hybrid Set - $75</li>
-                                <li>✓ Volume Set - $85</li>
-                                <li>✓ Mega Volume - $100</li>
-                                <li>✓ Refills from $40</li>
-                            </ul>
-                            <a href="#pricing" class="btn btn-view-service">View All Lashes</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 col-sm-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
-                        <div class="service-info">
-                            <h3>Henna & Additional</h3>
-                            <p>Beautiful henna designs and special treatments.</p>
-                            <ul class="service-list">
-                                <li>✓ Henna Design - from $10</li>
-                                <li>✓ Head Massage - $10</li>
-                                <li>✓ Eyelash Removal - $25</li>
-                            </ul>
-                            <a href="#pricing" class="btn btn-view-service">View All</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Arch n Tone. All Rights Reserved.</p>
         </div>
-    </section>
+    </div>
+</footer>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing py-5 bg-light">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Pricing</h2>
-                <p>Premium services at affordable prices</p>
-            </div>
-            
-            <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <div class="pricing-card">
-                        <h3 class="pricing-title">Threading & Facials</h3>
-                        <table class="pricing-table">
-                            <tr><td>Eyebrows</td><td>$10</td></tr>
-                            <tr><td>Upper Lip</td><td>$7</td></tr>
-                            <tr><td>Sidebrow</td><td>$10</td></tr>
-                            <tr><td>Forehead</td><td>$7</td></tr>
-                            <tr><td>Neck</td><td>$10</td></tr>
-                            <tr><td>Full Face</td><td>$30</td></tr>
-                            <tr><td>Eyebrow and Lip</td><td>$15</td></tr>
-                            <tr><td>Head Massage</td><td>$10</td></tr>
-                            <tr class="table-divider"><td colspan="2">FACIALS</td></tr>
-                            <tr><td>Express Cleansing</td><td>$25</td></tr>
-                            <tr><td>Classic Facial</td><td>$45</td></tr>
-                            <tr><td>Deep Cleansing Facial</td><td>$65</td></tr>
-                            <tr><td>Brightening Facial</td><td>$75</td></tr>
-                            <tr><td>Anti Aging Facial</td><td>$75</td></tr>
-                            <tr><td>Delux Facial</td><td>$100</td></tr>
-                        </table>
-                    </div>
-                </div>
-                
-                <div class="col-lg-6 mb-4">
-                    <div class="pricing-card">
-                        <h3 class="pricing-title">Tinting & Lashes</h3>
-                        <table class="pricing-table">
-                            <tr><td>Eyebrows Tint</td><td>$10</td></tr>
-                            <tr><td>Eyelash Tint</td><td>$12</td></tr>
-                            <tr><td>Eyebrow and Eyelash Tint</td><td>$20</td></tr>
-                            <tr><td>Eyelash Lift</td><td>$45</td></tr>
-                            <tr><td>Eyebrow Lamination</td><td>$70</td></tr>
-                            <tr><td>Eyelash Lift and Lamination</td><td>$70</td></tr>
-                            <tr class="table-divider"><td colspan="2">EYELASH EXTENSION</td></tr>
-                            <tr><td>Classic Set</td><td>$65</td></tr>
-                            <tr><td>Hybrid Full Set</td><td>$75</td></tr>
-                            <tr><td>Volume</td><td>$85</td></tr>
-                            <tr><td>Mega Volume</td><td>$100</td></tr>
-                            <tr><td>Refills Starts from</td><td>$40</td></tr>
-                            <tr><td>Removal</td><td>$25</td></tr>
-                            <tr><td>Henna Design start from</td><td>$10</td></tr>
-                        </table>
-                    </div>
-                </div>
-                
-                <div class="col-lg-12">
-                    <div class="pricing-card">
-                        <h3 class="pricing-title">Waxing Services</h3>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <table class="pricing-table">
-                                    <tr><td>Under Arms</td><td>$15</td></tr>
-                                    <tr><td>Half Arms</td><td>$20</td></tr>
-                                    <tr><td>Half Legs</td><td>$25</td></tr>
-                                    <tr><td>Full Legs</td><td>$40</td></tr>
-                                    <tr><td>Backside</td><td>$30</td></tr>
-                                </table>
-                            </div>
-                            <div class="col-md-6">
-                                <table class="pricing-table">
-                                    <tr><td>Stomach</td><td>$20</td></tr>
-                                    <tr><td>Full Body</td><td>$99</td></tr>
-                                    <tr><td>Bikini Line</td><td>$20</td></tr>
-                                    <tr><td>Brazilian</td><td>$45</td></tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-4">
-                <p class="pricing-note">* Prices are in AUD. Book your appointment today!</p>
-           
+<a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Smooth scroll & back to top
+    document.querySelector('.back-to-top').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if(target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+</body>
+</html>
