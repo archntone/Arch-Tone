@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ALL STYLES HERE */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         
@@ -37,8 +36,8 @@
         .hero h1 span { color: #e8c9a0; }
         .hero .lead { font-size: 1.3rem; color: #c8c8d4; }
         .hero-subtext { color: #a8a8b3; font-size: 1.1rem; margin-bottom: 30px; }
-        .btn-explore { background: #e8c9a0; color: #1a1a2e; padding: 14px 40px; border-radius: 30px; font-weight: 600; display: inline-block; }
-        .btn-outline-light { border: 2px solid #e8c9a0; color: #e8c9a0; padding: 14px 40px; border-radius: 30px; font-weight: 600; display: inline-block; background: transparent; }
+        .btn-explore { background: #e8c9a0; color: #1a1a2e; padding: 14px 40px; border-radius: 30px; font-weight: 600; display: inline-block; text-decoration: none; }
+        .btn-outline-light { border: 2px solid #e8c9a0; color: #e8c9a0; padding: 14px 40px; border-radius: 30px; font-weight: 600; display: inline-block; background: transparent; text-decoration: none; }
         
         .section-header { text-align: center; margin-bottom: 50px; }
         .section-header h2 { font-size: 2.8rem; color: #1a1a2e; font-weight: 300; }
@@ -52,7 +51,7 @@
         .service-card p { color: #6c6c80; }
         .service-list { list-style: none; padding: 0; text-align: left; }
         .service-list li { padding: 4px 0; color: #4a4a5a; display: flex; justify-content: space-between; }
-        .btn-view-service { border: 2px solid #e8c9a0; color: #1a1a2e; padding: 8px 25px; border-radius: 25px; display: inline-block; margin-top: 10px; }
+        .btn-view-service { border: 2px solid #e8c9a0; color: #1a1a2e; padding: 8px 25px; border-radius: 25px; display: inline-block; margin-top: 10px; text-decoration: none; }
         
         .pricing { padding: 80px 0; }
         .pricing-card { background: #f8f6f2; border-radius: 15px; padding: 30px; height: 100%; }
@@ -68,34 +67,16 @@
         .about-features { list-style: none; padding: 0; }
         .about-features li { padding: 8px 0; color: #4a4a5a; }
         .about-features li i { color: #e8c9a0; margin-right: 10px; }
-        
-        /* EXPERIENCE BADGE - NEW STYLING */
-        .experience-badge {
+        .experience-box {
             background: linear-gradient(135deg, #e8c9a0, #d4b08c);
-            border-radius: 15px;
             padding: 20px 25px;
-            margin-top: 20px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            box-shadow: 0 5px 25px rgba(232, 201, 160, 0.3);
+            border-radius: 12px;
+            margin: 20px 0;
+            color: #1a1a2e;
         }
-        .experience-badge .number {
-            font-size: 3rem;
+        .experience-box .big-number {
+            font-size: 2.5rem;
             font-weight: 700;
-            color: #1a1a2e;
-            line-height: 1;
-        }
-        .experience-badge .text {
-            color: #1a1a2e;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        .experience-badge .text small {
-            display: block;
-            font-weight: 300;
-            font-size: 0.9rem;
-            opacity: 0.8;
         }
         
         .contact { padding: 80px 0; }
@@ -107,12 +88,12 @@
         .contact-item h4 { color: #1a1a2e; font-weight: 600; }
         
         .social-links { display: flex; gap: 15px; margin-top: 10px; }
-        .social-links a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #1a1a2e; color: #e8c9a0; border-radius: 50%; }
+        .social-links a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #1a1a2e; color: #e8c9a0; border-radius: 50%; text-decoration: none; }
         .social-links a:hover { background: #e8c9a0; color: #1a1a2e; }
         
         .cta-banner { background: #1a1a2e; color: #ffffff; padding: 30px 0; }
         .cta-banner h3 { font-weight: 300; }
-        .cta-banner .btn-light { padding: 12px 30px; border-radius: 30px; font-weight: 600; color: #1a1a2e; }
+        .cta-banner .btn-light { padding: 12px 30px; border-radius: 30px; font-weight: 600; color: #1a1a2e; text-decoration: none; }
         
         .footer { background: #0f0f1a; color: #a8a8b3; padding: 60px 0 20px; }
         .footer-brand h3 { color: #e8c9a0; font-size: 1.8rem; font-weight: 300; }
@@ -128,7 +109,6 @@
             .hero h1 { font-size: 2.2rem; }
             .hero-buttons { flex-direction: column; align-items: center; }
             .hero-buttons .btn { width: 100%; max-width: 280px; }
-            .experience-badge { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -282,37 +262,32 @@
     </div>
 </section>
 
-<!-- ABOUT - UPDATED WITH 17+ YEARS EXPERIENCE -->
+<!-- ABOUT - WITH 17+ EXPERIENCE & IMAGE -->
 <section id="about" class="about">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
-                <!-- IMAGE SECTION -->
+                <!-- IMAGE - Replace "your-photo.jpg" with your actual image name -->
                 <img src="image/your-photo.jpg" alt="Arch n Tone Beauty Parlour" 
                      style="width: 100%; height: 400px; object-fit: cover; border-radius: 15px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);"
-                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=background:linear-gradient(135deg,#e8c9a0,#d4b08c,#c4956a);height:400px;border-radius:15px;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#1a1a2e;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.1);><i class=fas fa-spa style=font-size:5rem;margin-bottom:20px;color:#1a1a2e;opacity:0.8;></i><h2 style=font-weight:300;>Arch n Tone</h2><p style=opacity:0.7;>Beauty Parlour & Grooming Studio</p><div style=margin-top:15px;background:rgba(26,26,46,0.15);padding:8px 20px;border-radius:20px;font-size:0.9rem;><i class=fas fa-camera></i> Add your photo (image/your-photo.jpg)</div></div>'">
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=background:linear-gradient(135deg,#e8c9a0,#d4b08c);height:400px;border-radius:15px;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#1a1a2e;text-align:center;><i class=fas fa-spa style=font-size:5rem;margin-bottom:20px;></i><h2 style=font-weight:300;>Arch n Tone</h2><p>Beauty Parlour</p><div style=margin-top:15px;background:rgba(26,26,46,0.15);padding:8px 20px;border-radius:20px;>Upload your photo</div></div>'">
             </div>
             <div class="col-lg-6">
                 <div class="about-content">
                     <h2>About Arch n Tone</h2>
                     <p>Welcome to <strong>Arch n Tone</strong>, your premier beauty destination in Australia. We specialize in precision threading, waxing, tinting, facials, and full-body grooming services.</p>
                     
-                    <p>With over <strong>17+ years of experience</strong> in the beauty industry, our expert team has been serving thousands of satisfied clients across Australia. We take pride in our commitment to excellence, personalized care, and attention to detail that keeps our clients coming back.</p>
-                    
-                    <!-- EXPERIENCE BADGE -->
-                    <div class="experience-badge">
-                        <div class="number">17+</div>
-                        <div class="text">
-                            Years of Beauty Experience
-                            <small>Serving thousands of happy clients across Australia</small>
-                        </div>
+                    <!-- 17+ EXPERIENCE BOX -->
+                    <div class="experience-box">
+                        <span class="big-number">17+</span> Years of Beauty Experience
+                        <br><small style="opacity:0.8;">Serving thousands of happy clients across Australia</small>
                     </div>
                     
                     <ul class="about-features">
                         <li><i class="fas fa-check"></i> Expert professionals with years of experience</li>
                         <li><i class="fas fa-check"></i> Premium products & hygienic practices</li>
                         <li><i class="fas fa-check"></i> Affordable pricing with no hidden costs</li>
-                        <li><i class="fas fa-check"></i> Trusted by thousands of clients</li>
+                        <li><i class="fas fa-check"></i> Trusted by thousands of satisfied clients</li>
                     </ul>
                 </div>
             </div>
